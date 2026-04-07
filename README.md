@@ -1,80 +1,31 @@
-# TP1 — Fondamentaux GCP
+# Développer pour le Cloud - YNOV Campus
 
-Travaux Pratiques 1 du cours Cloud — YNOV.
-Objectif : prendre en main les services fondamentaux de Google Cloud Platform et conteneuriser une application Flask avec Docker.
+Ce repository contient l'ensemble des travaux pratiques et projets réalisés dans le cadre du cours **Développer pour le Cloud** au sein d'YNOV Campus Montpellier (Master 2).
 
 ## Structure du projet
 
-```
-TP1/
-├── tp1-app/
-│   ├── app.py              # Application Flask (routes / et /health)
-│   ├── requirements.txt    # Dépendances Python (Flask, Gunicorn)
-│   ├── Dockerfile          # Image Docker Python 3.12-slim
-│   └── .dockerignore
-├── Capture/                # Captures d'écran des livrables GCP
-├── TP.md                   # Réponses aux exercices
-└── README.md
-```
+Le repository est organisé par dossiers correspondants aux différentes étapes du cursus :
 
-## Application Flask
+- [**tp1-app/**](./tp1-app/) : Introduction aux fondamentaux de Google Cloud Platform (GCP) et déploiement d'une première application Flask.
+- [**tp2-app/**](./tp2-app/) : Docker Avancé, Cloud Run et Networking. Mise en place d'une stack micro-services avec Redis et PostgreSQL.
+- **MD/** : Supports de cours et instructions des TP et réponses aux questions au format Markdown.
+- **PDF/** : Énoncés originaux des TP au format PDF.
+- **Capture/** : Captures d'écran justifiant la réalisation des étapes clés (preuves de déploiement, tests de performance, etc.).
 
-L'application expose deux routes :
+## Compétences acquises
 
-| Route | Description |
-|-------|-------------|
-| `GET /` | Retourne un JSON avec message, hostname, environnement et version |
-| `GET /health` | Health check — retourne `{"status": "ok"}` avec HTTP 200 |
-
-## Lancer l'application avec Docker
-
-### Build de l'image
-
-```bash
-cd tp1-app
-docker build -t tp1-flask:v1 .
-```
-
-### Démarrer le conteneur
-
-```bash
-docker run -d -p 8080:8080 --name tp1-container -e APP_ENV=development tp1-flask:v1
-```
-
-### Tester
-
-```bash
-curl http://localhost:8080/
-curl http://localhost:8080/health
-```
-
-### Arrêter et supprimer le conteneur
-
-```bash
-docker stop tp1-container && docker rm tp1-container
-```
-
-## Variables d'environnement
-
-| Variable | Valeur par défaut | Description |
-|----------|-------------------|-------------|
-| `PORT` | `8080` | Port d'écoute de l'application |
-| `APP_ENV` | `production` | Environnement applicatif |
-
-## Parties du TP
-
-| Partie | Sujet |
-|--------|-------|
-| 1 | Théorie Cloud (modèles de service, NIST, microservices, GCP) |
-| 2 | Setup GCP & gcloud CLI |
-| 3 | Google Cloud Storage (buckets, objets) |
-| 4 | Compute Engine (cycle de vie d'une VM) |
-| 5 | Docker — conteneurisation de l'application Flask |
-| 6 | IAM & Service Accounts GCP |
-| 7 | Docker — inspection et debug de conteneurs |
+- **Conteneurisation** : Docker, Dockerfiles optimisés (multi-stage build), Docker Compose.
+- **Google Cloud Platform (GCP)** :
+    - **Compute** : Cloud Run (Serverless), Artifact Registry.
+    - **Storage** : Cloud Storage avec gestion du versioning et cycle de vie.
+    - **Networking** : Configuration de VPC, sous-réseaux et règles de pare-feu.
+- **Base de données & Cache** : PostgreSQL pour la persistance, Redis pour l'optimisation des performances (TTL, gestion de cache).
+- **CI/CD & Stratégies de déploiement** : Traffic splitting (Canary deployment) sur Cloud Run.
 
 ## Prérequis
 
-- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) (`gcloud` CLI)
-- [Docker](https://docs.docker.com/get-docker/) 20+
-- Compte GCP avec un projet actif
+Pour exécuter les projets localement ou les déployer :
+- Docker et Docker Compose
+- Google Cloud SDK (`gcloud`)
+- Node.js / Python (selon les modules)
+
