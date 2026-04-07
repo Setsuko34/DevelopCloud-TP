@@ -999,8 +999,8 @@ gcloud artifacts repositories delete tp2-registry \
 ```
 ```
 # Vérification
-gcloud run services list --region=europe-west
-gcloud artifacts repositories list --location=europe-west
+gcloud run services list --region=europe-west9
+gcloud artifacts repositories list --location=europe-west9
 ```
 ## Récapitulatif — Compétences validées
 
