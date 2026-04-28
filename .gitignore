@@ -10,3 +10,4 @@
 /httpRequests/
 .idea
 *.iml
+./tp3-app/secret.yaml
