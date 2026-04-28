@@ -11,3 +11,4 @@
 .idea
 *.iml
 ./tp3-app/secret.yaml
+tp3-app/k8s/secret.yaml
