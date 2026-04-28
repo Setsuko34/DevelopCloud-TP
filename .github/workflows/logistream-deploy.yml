@@ -110,16 +110,18 @@ jobs:
             --region=${GKE_REGION} --project=${PROJECT_ID}
 
       - name: Mettre a jour le GPS Producer
+        env:
+          SHA: ${{ github.sha }}
         run: |
-          kubectl set image deployment/gps-producer \
-            gps-producer=${{ needs.build-push.outputs.producer-tag }} \
-            -n kafka
+          IMAGE="${REGISTRY}/${PROJECT_ID}/tp2-registry/gps-producer:${SHA}"
+          kubectl set image deployment/gps-producer gps-producer=${IMAGE} -n kafka
 
       - name: Mettre a jour le Tracker Consumer
+        env:
+          SHA: ${{ github.sha }}
         run: |
-          kubectl set image deployment/tracker-consumer \
-            tracker-consumer=${{ needs.build-push.outputs.consumer-tag }} \
-            -n kafka
+          IMAGE="${REGISTRY}/${PROJECT_ID}/tp2-registry/tracker-consumer:${SHA}"
+          kubectl set image deployment/tracker-consumer tracker-consumer=${IMAGE} -n kafka
 
       - name: Attendre les deploiements
         run: |
