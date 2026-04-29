@@ -1232,7 +1232,7 @@ Nom   : "LogiStream Tracker Consumer — Mémoire haute"
 ```
 
 Notez les métriques observées au repos :
-![[Pasted image 20260428195202.png]]
+![memory.png](../Capture/tp3/memory.png)
 
 | Métrique                     | Valeur observée |
 |------------------------------|-----------------|
@@ -1288,10 +1288,9 @@ kubectl get namespaces
 
 - [x] Repository Git public avec le code complet (`k8s/` + `kafka/` + `producer/` + `consumer/` + `.github/`)
 - [x] Captures d'écran des logs producer ET consumer fonctionnels simultanément
-![[Pasted image 20260428163823.png|697]]
-![[Pasted image 20260428180319.png]]
+![run.png](../Capture/tp3/run.png)
 - [x] Résultat de la commande `kafka-consumer-groups.sh --describe` (screenshot)
-![[Pasted image 20260428183553.png]]
+![consumer_group.png](../Capture/tp3/consumer_group.png)
 - [x] Pipeline GitHub Actions avec 3 jobs verts (screenshot)
-![[Pasted image 20260428192810.png]]
+![ci.png](../Capture/tp3/ci.png)
 - [x] `README.md` avec diagramme d'architecture LogiStream (camions → GPS → Kafka → GKE → dashboard)
